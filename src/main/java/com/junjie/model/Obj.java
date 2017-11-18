@@ -10,5 +10,5 @@ public abstract class Obj {
     @Setter @Getter protected String name;
     @Setter @Getter protected Date created;
     @Setter @Getter protected Date lastModified;
-    @Setter @Getter protected boolean valid;
+    @Setter @Getter protected boolean deleted;
 }
