@@ -11,6 +11,7 @@ public class UserDao {
     }
 
     public User upsert(User user) {
+        System.out.println(user);
         return UserTable.data.put(user.getId(), user);
     }
 
