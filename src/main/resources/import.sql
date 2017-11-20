@@ -1,0 +1,4 @@
+CREATE DATABASE IF NOT EXISTS `bapi`;
+USE `bapi`;
+
+CREATE TABLE IF NOT EXISTS `User` ( `id` bigint(20) NOT NULL AUTO_INCREMENT, `name` varchar(12) NOT NULL DEFAULT '', `created` datetime NOT NULL, `lastModified` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP, `deleted` tinyint(1) NOT NULL, PRIMARY KEY (`id`) ) ENGINE=InnoDB DEFAULT CHARSET=utf8;

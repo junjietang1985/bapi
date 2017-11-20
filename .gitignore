@@ -3,6 +3,7 @@
 
 #java
 *.class
+target/*
 
 #others
 *.iml
