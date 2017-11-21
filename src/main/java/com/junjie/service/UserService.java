@@ -2,6 +2,7 @@ package com.junjie.service;
 
 import com.junjie.dao.UserDao;
 import com.junjie.model.User;
+import com.junjie.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,8 +13,11 @@ public class UserService {
     @Autowired
     UserDao userDao;
 
+    @Autowired
+    UserRepository userRepository;
+
     public User getUser(long id){
-        return userDao.get(id);
+        return userRepository.findOne(id);
     }
 
     public User saveUser(User user){
