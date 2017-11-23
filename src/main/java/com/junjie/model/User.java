@@ -1,6 +1,7 @@
 package com.junjie.model;
 
 import lombok.Data;
+import lombok.ToString;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;
@@ -9,5 +10,6 @@ import javax.persistence.Table;
 @Table(name = "User")
 
 @Data
+@ToString
 public class User extends Obj {
 }
