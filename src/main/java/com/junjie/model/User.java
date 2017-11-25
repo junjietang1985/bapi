@@ -10,6 +10,6 @@ import javax.persistence.Table;
 @Table(name = "User")
 
 @Data
-@ToString
+@ToString(callSuper = true)
 public class User extends Obj {
 }

@@ -2,6 +2,7 @@ package com.junjie.model;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -9,6 +10,7 @@ import javax.persistence.MappedSuperclass;
 import java.util.Date;
 
 @MappedSuperclass
+@ToString
 public abstract class Obj {
     @Id @Setter @Getter protected long id;
     @Setter @Getter protected String name;

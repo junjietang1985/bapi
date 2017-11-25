@@ -5,7 +5,6 @@ import static org.springframework.hateoas.mvc.ControllerLinkBuilder.methodOn;
 
 import com.junjie.model.User;
 import com.junjie.service.UserService;
-import com.junjie.utils.Utils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -46,9 +45,8 @@ public class UserController {
     @ResponseStatus(HttpStatus.ACCEPTED)
     public User updateUser(@PathVariable long userId, @RequestBody User user) {
         User existingUser = userService.getUser(userId);
-        User mergedUser = new User();
-        Utils.merge(existingUser, user, mergedUser);
-        return userService.saveUser(mergedUser);
+        this.merge(existingUser, user);
+        return userService.saveUser(existingUser);
     }
 
     @RequestMapping(method = RequestMethod.DELETE, value = "/{userId}")
@@ -57,6 +55,12 @@ public class UserController {
         User user = userService.getUser(userId);
         user.setDeleted(true);
         return userService.saveUser(user);
+    }
+
+    private void merge(User base, User patch){
+        if(patch.getName() != null){
+            base.setName(patch.getName());
+        }
     }
 
 }
