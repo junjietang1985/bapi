@@ -45,7 +45,7 @@ public class UserController {
     @ResponseStatus(HttpStatus.ACCEPTED)
     public User updateUser(@PathVariable long userId, @RequestBody User user) {
         User existingUser = userService.getUser(userId);
-        this.merge(existingUser, user);
+        existingUser.merge(user);
         return userService.saveUser(existingUser);
     }
 
@@ -57,10 +57,10 @@ public class UserController {
         return userService.saveUser(user);
     }
 
-    private void merge(User base, User patch){
-        if(patch.getName() != null){
-            base.setName(patch.getName());
-        }
-    }
+//    private void merge(User base, User patch){
+//        if(patch.getName() != null){
+//            base.setName(patch.getName());
+//        }
+//    }
 
 }
